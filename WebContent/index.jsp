@@ -7,6 +7,7 @@
 	<title>Index</title>
 	<script src="dataHora.js"></script>
 </head>
+
 <body onload="init()">
 	<div id="hora"></div>
 	<br><br>
