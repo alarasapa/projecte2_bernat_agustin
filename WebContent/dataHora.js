@@ -1,6 +1,7 @@
 /**
  * 
  */
-function escriure(){
-	document.getElementById("hora") += document.write("mkm");
+function dataHora(){
+	var ara = new Date;
+	document.getElementById("hora") += ara;
 }
