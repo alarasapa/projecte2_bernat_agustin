@@ -3,12 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title>Index</title>
-<script src="dataHora.js"></script>
+	<meta charset="ISO-8859-1">
+	<title>Index</title>
+	<script src="dataHora.js"></script>
 </head>
 <body onload="init()">
 	<div id="hora"></div>
+	<br><br>
 	
 	<form method="post" name="formulariReserva">
 		<div class="contenido">
@@ -20,6 +21,7 @@
 		<label>Persones</label><input type="text" id="persones" required><br><br>
 		<input type="checkbox" id="checkbox"><label> Descompte 20% </label><br><br>
 	</div>
+	
 	<div class="divBoto">
 		<input class="boto" type="submit" name="guardaReserva" value="Afegir"></input>
 		<div></div>
