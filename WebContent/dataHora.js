@@ -17,10 +17,11 @@
 		var any = horaActual.getFullYear();
 	
 		
-		/*document.addEventListener("dblclick", function(){
-			document.getElementById("hora").innerHTML = document.write(horas + ":" + minuts + ":" + segons + "<br>" + 
-			"Avui es");
-		})*/
+		document.getElementById("hora").addEventListener("dblclick", function(){
+			return horas + ":" + minuts + ":" + segons + "<br>" + 
+				"Avui es " + diaSetm + "<br>" +
+				dia + "/" + mes + "/" + any;
+		})
 		
 		var ampm;
 		if (horas < 13){
@@ -31,7 +32,7 @@
 		}
 	
 		return horas + ":" + minuts + ":" + segons + " " + ampm + "<br>" +
-			"Aviu es: " + diaSetm + "<br>" +
+			"Aviu és: " + diaSetm + "<br>" +
 			dia + "/" + mes + "/" + any;
 	}
 
@@ -68,7 +69,9 @@
 	}
 	
 	function init(){
+		//Cridem la funció de mostrar l'hora
 		actualitzarHora();
-		setInterval(actualitzarHora(), 1000);
+		//Creem un interval que cada segon s'actualitzi l'hora
+		setInterval(actualitzarHora, 1000);
 	}
 	
