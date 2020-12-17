@@ -7,9 +7,10 @@
 <title>Index</title>
 <script src="dataHora.js"></script>
 </head>
-<body onload="dataHora()">
+<body onload="init()">
+	<div id="hora"></div>
+	
 	<form method="post" name="formulariReserva">
-		<div id="hora"></div>
 		<div class="contenido">
 		<label>Data</label><input type="date" value="" onkeydown ="return false" required><br><br>
 		<label>Destí</label><select name="continents" required></select><select name="paisos" required></select><br><br>
