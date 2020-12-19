@@ -79,10 +79,10 @@
 				
 			default:
 				return "Hi ha hagut un error a l'hora d'obteniir el dia de la setmana";
-			}
 		}
+	}
 	
-	/*
+	/** 
 	* Funció que actualitza l'hora a l'actual
 	*/
 	function actualitzarHora(){

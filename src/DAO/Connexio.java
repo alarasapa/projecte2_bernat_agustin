@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class Connexio {
 	private static String controlador = "com.mysql.jdbc.Driver";
-	private static String url = "jdbc:mysql://localhost:3306/pr02_agustin_bernat";
+	private static String url = "jdbc:mysql://localhost:3306/pr02_agustín_bernat";
 	private static String user = "root";
 	private static String password = null;
 	private static Connexio instancia = null;

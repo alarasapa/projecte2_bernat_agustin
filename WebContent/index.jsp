@@ -12,15 +12,15 @@
 	<div id="hora"></div>
 	<br><br>
 	
-	<form method="post" name="formulariReserva">
+	<form action="reservaservlet" name="formulariReserva" method="POST">
 		<div class="contenido">
-		<label>Data</label><input type="date" value="" onkeydown ="return false" required><br><br>
-		<label>Destí</label><select name="continents" required></select><select name="paisos" required></select><br><br>
-		<label>Preu</label><input type="text" id="preu" disabled><label>€</label><br><br>
-		<label>Nom</label><input type="text" id="nom" required><br><br>
-		<label>Telèf.</label><input type="tel" id="telefon" name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required><br><br>
-		<label>Persones</label><input type="text" id="persones" required><br><br>
-		<input type="checkbox" id="checkbox"><label> Descompte 20% </label><br><br>
+		<label>Data </label><input type="date" name="data" onkeydown ="return false" required><br><br>
+		<label>Destí </label><select name="continents" required></select><select name="paisos" required></select><br><br>
+		<label>Preu </label><input type="text" name="preu" readonly><label>€</label><br><br>
+		<label>Nom </label><input type="text" name="nom" required><br><br>
+		<label>Telèf. </label><input type="tel" name="telefon" name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required><br><br>
+		<label>Persones </label><input type="text" name="persones" required><br><br>
+		<input type="checkbox" name="checkbox"><label> Descompte 20% </label><br><br>
 	</div>
 	
 	<div class="divBoto">
