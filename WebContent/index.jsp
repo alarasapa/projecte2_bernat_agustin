@@ -6,6 +6,7 @@
 	<meta charset="ISO-8859-1">
 	<title>Index</title>
 	<script src="dataHora.js"></script>
+	<script src="dades.js"></script>
 </head>
 
 <body onload="init()">
@@ -26,6 +27,9 @@
 	<div class="divBoto">
 		<input class="boto" type="submit" name="guardaReserva" value="Afegir"></input>
 		<div></div>
+	</div>
+	<div class="imatge">
+		<img alt="" src="imatges/africa/angola.jpg">
 	</div>
 	</form>
 </body>
