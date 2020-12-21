@@ -336,39 +336,57 @@ const continents = [
 		
 	},
 ];
-
-function initDades(){
-	var despContinents = document.getElementById("continents");
-	 
-	for (let continent of continents){
-		var opt = document.createElement("option");
-		opt.text = continent.nom;
-		despContinents.add(opt);
+	
+	function initDades(){
+		var despContinents = document.getElementById("continents");
+		 
+		for (let continent of continents){
+			var opt = document.createElement("option");
+			opt.text = continent.nom;
+			despContinents.add(opt);
+			
+			escullContinent();
+		}
 	}
-}
-
-
-function escullContinent(){
-	var pais = document.getElementById("paisos");
-	pais.removeAttribute("disabled");
 	
-	var despPaisos = document.getElementById("paisos");
 	
-	for (let i = despPaisos.options.length - 1; i >= 0; i--){
-		despPaisos.remove(i);
-	}
-	var continentNom = document.getElementById("continents").value;
-	
-	for (let continent of continents){
-		if (continentNom == continent.nom){
-			for (let pais of continent.paisos){
-				var opt = document.createElement("option");
-				opt.text = pais.nom;
-				despPaisos.add(opt);
+	function escullContinent(){
+		var pais = document.getElementById("paisos");
+		pais.removeAttribute("disabled");
+		
+		var despPaisos = document.getElementById("paisos");
+		
+		for (let i = despPaisos.options.length - 1; i >= 0; i--){
+			despPaisos.remove(i);
+		}
+		var continentNom = document.getElementById("continents").value;
+		var preuInput = document.getElementById("preu");
+		
+		for (let continent of continents){
+			if (continentNom == continent.nom){
+				preuInput.value = continent.paisos[0].preu;
 				
-				var preuInput = document.getElementById("preu");
-				preuInput.value = pais.preu;
+				for (let pais of continent.paisos){
+					var opt = document.createElement("option");
+					opt.text = pais.nom;
+					despPaisos.add(opt);	
+				}
 			}
 		}
 	}
-}
+	
+	function escullPais(){
+		var continentNom = document.getElementById("continents").value;
+		var paisNom = document.getElementById("paisos").value;
+		var preuInput = document.getElementById("preu");
+		
+		for (let continent of continents){
+			if (continent.nom == continentNom){
+				for (let pais of continent.paisos){
+					if (pais.nom == paisNom){
+						preuInput.value = pais.preu;	
+					}
+				}
+			}
+		}
+	}
