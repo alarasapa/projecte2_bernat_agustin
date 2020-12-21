@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="ISO-8859-1">
+	<meta charset="UTF-8">
 	<title>Index</title>
 	<script src="dataHora.js"></script>
 	<script src="dades.js"></script>
@@ -16,7 +16,7 @@
 	<form action="reservaservlet" name="formulariReserva" method="POST">
 		<div class="contenido">
 		<label>Data </label><input type="date" name="data" onkeydown ="return false" required><br><br>
-		<label>Destí </label><select name="continents" required></select><select name="paisos" required></select><br><br>
+		<label>Destí </label><select id="continents" onchange="escullContinent()" required></select><select name="paisos" id="paisos" disabled></select><br><br>
 		<label>Preu </label><input type="text" name="preu" readonly><label>€</label><br><br>
 		<label>Nom </label><input type="text" name="nom" required><br><br>
 		<label>Telèf. </label><input type="tel" name="telefon" name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required><br><br>

@@ -112,5 +112,7 @@
 		
 		//Creem un interval que cada segon s'actualitzi l'hora
 		setInterval(actualitzarHora, 1000);
+		
+		initDades();
 	}
 	
