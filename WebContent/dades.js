@@ -305,6 +305,9 @@ function escullContinent(){
 				var opt = document.createElement("option");
 				opt.text = pais.nom;
 				despPaisos.add(opt);
+				
+				var preuInput = document.getElementById("preu");
+				preuInput.value = pais.preu;
 			}
 		}
 	}
