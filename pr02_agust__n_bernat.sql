@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-12-2020 a las 16:05:14
+-- Tiempo de generación: 25-12-2020 a las 11:01:17
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.10
 
@@ -33,23 +33,10 @@ CREATE TABLE `reserves` (
   `persones` varchar(4) DEFAULT NULL,
   `telefon` char(9) DEFAULT NULL,
   `preu` float DEFAULT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `pais` varchar(45) NOT NULL,
+  `imatge` varchar(45) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `reserves`
---
-
-INSERT INTO `reserves` (`idReserva`, `nom`, `persones`, `telefon`, `preu`, `data`) VALUES
-(1, 'prova', '1', '123456789', 100, '2020-12-03'),
-(2, 'otrapurbue', '2', '123456789', 200, '2020-12-09'),
-(3, 'qqqqqqqqq', '1', '123456789', 100, '2020-12-10'),
-(4, 'qa', '1', '123456789', 100, '2020-12-10'),
-(5, 'q', '1', '123456789', 100, '2020-12-01'),
-(6, 'cdcd', '1', '123456789', 100, '2020-11-19'),
-(7, 'qqqqeeghtrbrtbvrtr', '1', '123456789', 80, '2020-09-17'),
-(8, '11q1q1', '1', '123456789', 100, '2020-12-30'),
-(9, 'otraaaaaa', '1', '123456789', 80, '2020-12-02');
 
 --
 -- Índices para tablas volcadas

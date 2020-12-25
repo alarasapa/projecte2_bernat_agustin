@@ -365,6 +365,8 @@ const continents = [
 		for (let continent of continents){
 			if (continentNom == continent.nom){
 				preuInput.value = continent.paisos[0].preu;
+				document.getElementById("imatge").setAttribute("src", continent.paisos[0].imatge);
+				document.getElementById("imatgeNom").setAttribute("value", continent.paisos[0].imatge);
 				
 				for (let pais of continent.paisos){
 					var opt = document.createElement("option");
@@ -385,6 +387,8 @@ const continents = [
 				for (let pais of continent.paisos){
 					if (pais.nom == paisNom){
 						preuInput.value = pais.preu;	
+						document.getElementById("imatge").setAttribute("src", pais.imatge);
+						document.getElementById("imatgeNom").setAttribute("value", pais.imatge);
 					}
 				}
 			}

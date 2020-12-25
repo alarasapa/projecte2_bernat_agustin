@@ -40,14 +40,17 @@ public class ReservaServlet extends HttpServlet {
 		try {
 			//Extraiem les dades del formulari
 			String data = request.getParameter("data");
-			float preu = Float.parseFloat(request.getParameter("preu"));
+			
+			float preu = Float.parseFloat(request.getParameter("preu").replace(',', '.'));
 			String nom = request.getParameter("nom");
 			String telefon = request.getParameter("telefon").replace(".", "");
 			int persones = Integer.parseInt(request.getParameter("persones"));
 			String descompte = request.getParameter("checkbox");
-
+			String pais = request.getParameter("paisos");
+			String imatge = request.getParameter("imatgeNom");
+			
 			//Creem un objecte reserva amb les dades del formulari
-			Reserva reserva = new Reserva(nom, data, persones, telefon, preu);
+			Reserva reserva = new Reserva(nom, data, persones, telefon, preu, pais, imatge);
 			
 			//Cridem a la funció d'afegir la reserva a la BBDD
 			ReservaDAO.afegirReserva(reserva, descompte);

@@ -35,7 +35,7 @@ public class ReservaDAO {
 			//Estableixem connexió
 			conn = Connexio.getConnexio();
 			//Senténcia SQL per a inserir a la BBDD
-			String sql = "INSERT INTO reserves(nom, persones, telefon, preu, data) VALUES(?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO reserves(nom, persones, telefon, preu, data, pais, imatge) VALUES(?, ?, ?, ?, ?, ?, ?)";
 			//Creem l'objecte del PreparedStatement passant-li la senténcia SQL
 			sent = conn.prepareStatement(sql);
 			
@@ -46,6 +46,8 @@ public class ReservaDAO {
 			//Multipliquem el numero de persones pel preu de la reserva
 			sent.setFloat(4, reserva.getPreu() * reserva.getPersones());
 			sent.setDate(5, Date.valueOf(reserva.getData()));
+			sent.setString(6, reserva.getPais());
+			sent.setString(7, reserva.getImatge());
 			
 			//Executem la senténcia
 			sent.executeUpdate();

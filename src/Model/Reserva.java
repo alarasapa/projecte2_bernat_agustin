@@ -10,13 +10,17 @@ public class Reserva {
 	private int persones;
 	private String telefon;
 	private float preu;
+	private String pais;
+	private String imatge;
 	
-	public Reserva(String nom, String data, int persones, String telefon, float preu) throws SQLException {
+	public Reserva(String nom, String data, int persones, String telefon, float preu, String pais, String imatge) throws SQLException {
 		setNom(nom);
 		setData(data);
 		setPersones(persones);
 		setTelefon(telefon);
 		setPreu(preu);
+		setPais(pais);
+		setImatge(imatge);
 	}
 	
 	public Reserva(ResultSet rs) throws SQLException {
@@ -25,6 +29,8 @@ public class Reserva {
 		setPersones(rs.getInt("persones"));
 		setTelefon(rs.getString("telefon"));
 		setPreu(rs.getFloat("preu"));
+		setPais(rs.getString("pais"));
+		setImatge(rs.getString("imatge"));
 	}
 
 	public String getNom() {
@@ -65,6 +71,22 @@ public class Reserva {
 
 	public void setData(String data) {
 		this.data = data;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
+	}
+
+	public String getImatge() {
+		return imatge;
+	}
+
+	public void setImatge(String imatge) {
+		this.imatge = imatge;
 	}
 
 }
