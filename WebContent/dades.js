@@ -1,3 +1,4 @@
+//Constant amb tots els continents i paisos amb el seu preu i imatge
 const continents = [
 	{
 		nom:"Asia",
@@ -337,37 +338,54 @@ const continents = [
 	},
 ];
 	
+	/**
+	* Funció que inicialitza les dades del desplegable que es troba al index
+	*/
 	function initDades(){
+		//Agafa el desplegable
 		var despContinents = document.getElementById("continents");
 		 
+		//Recorre els continents i els afegeix
 		for (let continent of continents){
 			var opt = document.createElement("option");
 			opt.text = continent.nom;
 			despContinents.add(opt);
 			
+			//S'escolleix un continent de forma automatica
 			escullContinent();
 		}
 	}
 	
 	
+	/**
+	* Funció per a quan l'usuari escolleix un continent en el desplegable
+	*/
 	function escullContinent(){
-		var pais = document.getElementById("paisos");
-		pais.removeAttribute("disabled");
-		
+		//Agafa el desplegable de pais
 		var despPaisos = document.getElementById("paisos");
+		despPaisos.removeAttribute("disabled");
 		
+		//Elimina els paisos que es trobabem abans per
+		//a que no s'acumulin
 		for (let i = despPaisos.options.length - 1; i >= 0; i--){
 			despPaisos.remove(i);
 		}
+		
 		var continentNom = document.getElementById("continents").value;
 		var preuInput = document.getElementById("preu");
 		
+		//Recorre els continents
 		for (let continent of continents){
+			//Si el nom del continent és igual al escollit
 			if (continentNom == continent.nom){
+				//S'agafa el preu del pais...
 				preuInput.value = continent.paisos[0].preu;
+				//la imatge...
 				document.getElementById("imatge").setAttribute("src", continent.paisos[0].imatge);
+				//i el nom d'aquesta
 				document.getElementById("imatgeNom").setAttribute("value", continent.paisos[0].imatge);
 				
+				//Recorre tots els paisos del continent i els afegeix
 				for (let pais of continent.paisos){
 					var opt = document.createElement("option");
 					opt.text = pais.nom;
@@ -377,17 +395,28 @@ const continents = [
 		}
 	}
 	
+	/**
+	* Funció per a quan l'usuari escolleix un pais
+	*/
 	function escullPais(){
+		//Agafa el nom del continent, pais actual i el que escolleix l'usuari
 		var continentNom = document.getElementById("continents").value;
 		var paisNom = document.getElementById("paisos").value;
 		var preuInput = document.getElementById("preu");
 		
+		//Recorre els continents
 		for (let continent of continents){
+			//Si els continents són iguals...
 			if (continent.nom == continentNom){
+				//Recorre els paisos
 				for (let pais of continent.paisos){
+					//Si els paisos són iguals...
 					if (pais.nom == paisNom){
+						//Iguala al preu 
 						preuInput.value = pais.preu;	
+						//Agafa la imatge...
 						document.getElementById("imatge").setAttribute("src", pais.imatge);
+						//i el seu nom
 						document.getElementById("imatgeNom").setAttribute("value", pais.imatge);
 					}
 				}
