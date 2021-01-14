@@ -11,7 +11,10 @@
 </head>
 
 <body onload="init()">
-	<div id="hora"></div>
+	<div class ="encabezado">
+		<div id=logo><img src="imatges/imatgesAuxiliars/2logo.png"></div>
+		<div id="hora"></div>
+	</div>
 	<br><br>
 	<form action="reservaservlet" name="formulariReserva" method="POST">
 		<div class="contenido">

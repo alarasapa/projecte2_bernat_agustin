@@ -37,14 +37,14 @@
 				horas = horas - 12;
 			}
 		
-			return horas + ":" + minuts + ":" + segons + " " + ampm + "<br>" +
-				"Aviu és: " + diaSetm + "<br>" +
-				dia + "/" + mes + "/" + any;
+			return "<div class='temps'>"+horas + ":" + minuts + ":" + segons + " " + ampm + "<br>" +
+				diaSetm + "<br>" +
+				dia + "/" + mes + "/" + any+"</div>";
 				
 		} else {
-			return horas + ":" + minuts + ":" + segons + "<br>" + 
-				"Avui es " + diaSetm + "<br>" +
-				dia + "/" + mes + "/" + any;
+			return "<div class='temps'>"+horas + ":" + minuts + ":" + segons + "<br>" + 
+				diaSetm + "<br>" +
+				dia + "/" + mes + "/" + any+"</div>";
 		}
 	}
 

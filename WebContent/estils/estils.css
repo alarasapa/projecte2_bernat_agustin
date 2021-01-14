@@ -4,6 +4,36 @@
 	display:flex;
 	padding: 50px;
 }
-.imatge{
+.contenidoImagen{
 	margin-right:100px;
+}
+#imatge{
+	border-color:blue;
+	border-style: inset;
+}
+
+body{
+	margin: 0;
+	background-color: grey;
+}
+.encabezado{
+	display: grid;
+	grid-column-gap: 510px;
+	grid-template-columns: auto auto;
+	margin: 0;
+	padding: 0;
+	background-color: #9dfffb;
+	border: 2px solid #000000;
+}
+.logo{
+	padding: 20px;
+	border:1px solid black;
+	
+}
+.temps{
+	font-family: impact;
+	border: 1px solid black;
+	background: linear-gradient(135deg,#00fff5,#0087ff,#00fff9);
+	text-align: center;
+	border-radius: 10px;
 }
