@@ -3,7 +3,10 @@ package DAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import Model.Reserva;
 
@@ -34,8 +37,10 @@ public class ReservaDAO {
 		try {
 			//Estableixem connexió
 			conn = Connexio.getConnexio();
+			
 			//Senténcia SQL per a inserir a la BBDD
 			String sql = "INSERT INTO reserves(nom, persones, telefon, preu, data, pais, imatge) VALUES(?, ?, ?, ?, ?, ?, ?)";
+			
 			//Creem l'objecte del PreparedStatement passant-li la senténcia SQL
 			sent = conn.prepareStatement(sql);
 			
@@ -51,12 +56,63 @@ public class ReservaDAO {
 			
 			//Executem la senténcia
 			sent.executeUpdate();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {			
 			//I la tanquem
 			sent.close();
 		}
+	}
+	
+	/***
+	 * Funció per a afegir reserves en una Arraylist
+	 * @return Retorna la llista de reserves que es troben
+	 * @throws SQLException Llença una excepció quan es produeix un error dins de les sentencies SQL
+	 */
+	public static ArrayList<Reserva> getReserves() throws SQLException{
+		//Creem un objecte ArrayList de tipus Reserva on guardarem
+		//Totes les reserves emmagatzemades en la BBDD
+		ArrayList<Reserva> llistaReserves = new ArrayList<Reserva>();
+		
+		//Inicialitzem les variables
+		Connection conn = null;
+		Statement sent = null;
+		ResultSet res = null;
+		
+		try {
+			//Estableixem connexió
+			conn = Connexio.getConnexio();
+			
+			//Senténcia SQL per a consultar a la BBDD
+			String sql = "SELECT data, pais, nom, telefon, persones, preu FROM reserves";
+			
+			//Creem la senténcia amb la connexió anterior
+			sent = conn.createStatement();
+			
+			//Executem la consulta amb la senténcia i guardem el 
+			//resultat en el ResultSet
+			res = sent.executeQuery(sql);
+			
+			//Creem un bucle per a cada fila de la BBDD...
+			while (res.next()) {
+				//i l'afegim a la llista de reserves
+				llistaReserves.add(new Reserva(res));
+			}
+			
+			//Retornem la llista 
+			return llistaReserves;
+			
+		} catch (SQLException e) {
+			//En cas d'error, retornem NULL
+			e.printStackTrace();
+			return null;
+			
+		} finally {
+			res.close();
+			sent.close();
+		}
+		
 	}
 	
 }

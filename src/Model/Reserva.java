@@ -46,7 +46,12 @@ public class Reserva {
 	}
 
 	public void setPersones(int persones) {
-		this.persones = persones;
+		if (persones == 0) throw new Error("No es pot reservar si no hi han persones");
+		
+		else {			
+			this.persones = persones;
+		}
+		
 	}
 
 	public String getTelefon() {
