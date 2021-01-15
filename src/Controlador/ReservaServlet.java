@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import DAO.ReservaDAO;
 import Model.Reserva;
+import Model.ReservaConstructor;
 
 /**
  * Servlet implementation class ReservaServlet
@@ -31,6 +32,9 @@ public class ReservaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//AR = ReseDAO.getReserves()
+		//forward...(AR);
+		//response.sendRedirect("index.jsp");
 	}
 
 	/**
@@ -38,22 +42,11 @@ public class ReservaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			//Extraiem les dades del formulari
-			String data = request.getParameter("data");
-			
-			float preu = Float.parseFloat(request.getParameter("preu").replace(',', '.'));
-			String nom = request.getParameter("nom");
-			String telefon = request.getParameter("telefon").replace(".", "");
-			int persones = Integer.parseInt(request.getParameter("persones"));
+			Reserva res = ReservaConstructor.getReserva(request);
 			String descompte = request.getParameter("checkbox");
-			String pais = request.getParameter("paisos");
-			String imatge = request.getParameter("imatgeNom");
-			
-			//Creem un objecte reserva amb les dades del formulari
-			Reserva reserva = new Reserva(nom, data, persones, telefon, preu, pais, imatge);
 			
 			//Cridem a la funció d'afegir la reserva a la BBDD
-			ReservaDAO.afegirReserva(reserva, descompte);
+			ReservaDAO.afegirReserva(res, descompte);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
