@@ -72,8 +72,6 @@
 				</div>
 			</div>
 	</div>
-<<<<<<< HEAD
-=======
 	<div class="imatge">
 		<!--<c:choose>
 		
@@ -87,8 +85,6 @@
 		</c:choose>
 	
 		<!--<img alt="" src="imatges/africa/angola.jpg">-->
->>>>>>> 65fe9bf1ca5e50c188ff1e06c9775f2978dfd075
 	</div>
-	
 </body>
 </html>
