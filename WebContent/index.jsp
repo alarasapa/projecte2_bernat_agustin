@@ -41,14 +41,14 @@
 					    
 						<input type="hidden" name="imatgeNom" id="imatgeNom">
 						
-						<label>Preu </label><input type="text" class="form-control form-control-sm" id="preu" name="preu" readonly><label>€</label>
+						<label>Preu (€)</label><input type="text" class="form-control form-control-sm" id="preu" name="preu" readonly>
 						
 						<label>Nom </label>
 					    <input type="text" name="nom" class="form-control form-control-sm"   pattern="[a-zA-Z]+" placeholder="Introdueix el teu nom" required>
 					    
 					    <label>Telèf. </label><input type="tel"  class="form-control form-control-sm"name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required>
 						
-						<label>Persones </label><input type="text" class="form-control form-control-sm" name="persones" placeholder="Introdueix el número de persones (1,2,3,...)" required>
+						<label>Persones </label><input type="text" class="form-control form-control-sm" name="persones" pattern ="[0-9]+" placeholder="Introdueix el número de persones (1,2,3,...)" required>
 						
 						<div class="form-check form-switch">
 							<input name="checkbox" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
