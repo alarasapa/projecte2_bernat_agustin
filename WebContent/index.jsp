@@ -43,7 +43,7 @@
 						<label>Preu </label><input type="text" class="form-control form-control-sm" id="preu" name="preu" readonly><label>€</label>
 						
 						<label>Nom </label>
-					    <input type="text" name="nom" class="form-control form-control-sm"  placeholder="Introdueix el teu nom" required>
+					    <input type="text" name="nom" class="form-control form-control-sm"   pattern="[a-zA-Z]" placeholder="Introdueix el teu nom" required>
 					    
 					    <label>Telèf. </label><input type="tel"  class="form-control form-control-sm"name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required>
 						
@@ -71,6 +71,8 @@
 					<img id="imatge" name="imatge" width="300" height="300"><br><br>
 				</div>
 			</div>
+			</div>
+			
 	</div>
 	<div class="imatge">
 		<!--<c:choose>

@@ -2,6 +2,7 @@ package Controlador;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -32,9 +33,15 @@ public class ReservaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//AR = ReseDAO.getReserves()
-		//forward...(AR);
-		//response.sendRedirect("index.jsp");
+		try {
+			ArrayList<Reserva> llistaReserves = ReservaDAO.getReserves();
+			request.setAttribute("llistaReserves", llistaReserves);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		request.getRequestDispatcher("index.jsp").forward(request, response);
+		response.sendRedirect("index.jsp");
 	}
 
 	/**
