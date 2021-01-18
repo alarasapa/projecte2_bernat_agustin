@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Date;
 
 public class Reserva {
+	private int id;
 	private String nom;
 	private String data;
 	private int persones;
@@ -24,6 +25,7 @@ public class Reserva {
 	}
 	
 	public Reserva(ResultSet rs) throws SQLException {
+		setId(rs.getInt("idReserva"));
 		setNom(rs.getString("nom"));
 		setData(String.valueOf(rs.getDate("data")));
 		setPersones(rs.getInt("persones"));
@@ -31,6 +33,14 @@ public class Reserva {
 		setPreu(rs.getFloat("preu"));
 		setPais(rs.getString("pais"));
 		setImatge(rs.getString("imatge"));
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getNom() {

@@ -85,7 +85,7 @@ public class ReservaDAO {
 			conn = Connexio.getConnexio();
 			
 			//Senténcia SQL per a consultar a la BBDD
-			String sql = "SELECT data, pais, nom, telefon, persones, preu FROM reserves";
+			String sql = "SELECT * FROM reserves";
 			
 			//Creem la senténcia amb la connexió anterior
 			sent = conn.createStatement();

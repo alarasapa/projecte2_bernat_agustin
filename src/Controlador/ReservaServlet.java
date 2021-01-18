@@ -41,7 +41,7 @@ public class ReservaServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		request.getRequestDispatcher("index.jsp").forward(request, response);
-		response.sendRedirect("index.jsp");
+		//response.sendRedirect("index.jsp");
 	}
 
 	/**

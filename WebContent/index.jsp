@@ -7,6 +7,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Index</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="estils/estils.css">
 	<script src="dataHora.js"></script>
@@ -43,7 +44,7 @@
 						<label>Preu </label><input type="text" class="form-control form-control-sm" id="preu" name="preu" readonly><label>€</label>
 						
 						<label>Nom </label>
-					    <input type="text" name="nom" class="form-control form-control-sm"   pattern="[a-zA-Z]" placeholder="Introdueix el teu nom" required>
+					    <input type="text" name="nom" class="form-control form-control-sm"   pattern="[a-zA-Z]+" placeholder="Introdueix el teu nom" required>
 					    
 					    <label>Telèf. </label><input type="tel"  class="form-control form-control-sm"name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required>
 						
@@ -75,18 +76,26 @@
 			
 	</div>
 	<div class="imatge">
-		<!--<c:choose>
-		
-			<c:when test="${empty colors}">
-				<p>cdcdcdcd</p>
+		<c:choose>
+			<c:when test="${empty llistaReserves}">
+				<p>No hi han reserves en la base de dades</p>
 			</c:when>
 			
 			<c:otherwise>
-				
+				<c:forEach var="reserva" items="${llistaReserves}">
+					<div class="imatgeReserva">
+						<a class="fa fa-trash" href="eliminarservlet"></a>
+						<p>Sr/Sra: ${reserva.nom}</p>
+						<p>A: ${reserva.pais}</p>
+						<p>Data: ${reserva.data}</p>
+						<p>Preu: ${reserva.preu}€</p>
+						<p>Persona/es: ${reserva.persones}</p>
+						<p>Tel: ${reserva.telefon}</p>
+					</div>
+				</c:forEach>
 			</c:otherwise>
 		</c:choose>
 	
-		<!--<img alt="" src="imatges/africa/angola.jpg">-->
 	</div>
 </body>
 </html>
