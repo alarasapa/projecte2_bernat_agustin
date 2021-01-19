@@ -20,9 +20,9 @@
 	  		<div id=logo>
 	  			<img src="imatges/imatgesAuxiliars/Calavera_png_tranparente.png" height="100px">
 	  		</div>
-		    <h1>WONDERFUL TRAVEL</h1>
+		    <div><h1>WONDERFUL TRAVEL</h1></div>
 		        
-			<div id="hora"></div>
+			<div class="mr-2"><div id="hora"></div></div>
 		</div>
 	 </nav>
 	 <br><br>
@@ -31,7 +31,7 @@
 			<div class="col border-end">
 				<form action="reservaservlet" name="formulariReserva" method="POST">
 					<div class="row">
-				    	<div class="col-9">
+				    	<div class="col col-lg-9">
 						    <label>Data</label>
 						    <input type="date" class="form-control form-control-sm" name="data" onkeydown ="return false" required>
 						    
@@ -80,27 +80,39 @@
 			
 	</div>
 	<div class="imatge">
-		<c:choose>
-			<c:when test="${empty llistaReserves}">
-			<br><br>
-				<label>No hi han reserves en la base de dades</label>
-			</c:when>
-			
-			<c:otherwise>
-				<c:forEach var="reserva" items="${llistaReserves}">
-					<div class="imatgeReserva">
-						<a class="fa fa-trash" href="eliminarservlet?elimid=${reserva.id}"></a>
-						<p>Sr/Sra: ${reserva.nom}</p>
-						<p>A: ${reserva.pais}</p>
-						<p>Data: ${reserva.data}</p>
-						<p>Preu: ${reserva.preu}€</p>
-						<p>Persona/es: ${reserva.persones}</p>
-						<p>Tel: ${reserva.telefon}</p>
-					</div>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
-	
+		<div class="container">
+			<c:choose>
+				<c:when test="${empty llistaReserves}">
+				<br><br>
+					<hr>
+					<label>No hi han reserves en la base de dades</label>
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="reserva" items="${llistaReserves}">
+						<div class="row">
+				        	<div class="col-md-4">
+				            	<div class="card mb-4 box-shadow shadow-sm">
+				                	<img class="card-img-top" height="300px" width="300px" src="imatges/africa/angola.jpg" alt="Card image cap">
+				                	<div class="card-body">
+				                  		<p class="card-text">
+							                  Sr/Sra: ${reserva.nom}<br>
+							                  A: ${reserva.pais}<br>
+							                  Data : ${reserva.data}<br>
+							                  Preu: ${reserva.preu}€<br>
+							                  Persona/es: ${reserva.persones}<br>
+							                  Tel: ${reserva.telefon}<br>
+				                  		</p>
+				                  		<div class="d-flex justify-content-end align-items-center">
+				                  			<a class="fa fa-trash" href="eliminarservlet?elimid=${reserva.id}"></a>
+				                  		</div>
+				                	</div>
+				              	</div>
+				            </div>
+				         </div>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>  
+		</div>
 	</div>
 </body>
 </html>
