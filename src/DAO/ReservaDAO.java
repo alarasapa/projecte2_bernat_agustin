@@ -115,4 +115,36 @@ public class ReservaDAO {
 		
 	}
 	
+	/***
+	 * Funció que elimina de la BBDD una reserva en funció del ID
+	 * @param id Identificador de la reserva que es vol eliminar
+	 * @throws SQLException Llença una excepció quan es produeix un error dins de les sentencies SQL
+	 */
+	public static void eliminarReserva(int id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement sent = null;
+		
+		try {
+			conn = Connexio.getConnexio();
+			
+			//Senténcia SQL in s'elimina de la taula reserves un registre en base al id
+			String sql = "DELETE FROM reserves WHERE idReserva = ?";
+			
+			sent = conn.prepareStatement(sql);
+			
+			//Setejem l'id passat per paràmatre
+			sent.setInt(1, id);
+			
+			//Executem la senténcia
+			sent.executeUpdate();
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		
+		} finally {
+			sent.close();
+		}
+	}
+	
 }

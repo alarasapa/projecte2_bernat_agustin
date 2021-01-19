@@ -1,11 +1,15 @@
 package Controlador;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import DAO.ReservaDAO;
 
 /**
  * Servlet implementation class EliminarServlet
@@ -26,7 +30,20 @@ public class EliminarServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//Eliminar reserva usando el ID (llamando DAO) y volver a index
+		
+		//Agafem l'id passat pels paràmatres GET
+		int elimId = Integer.parseInt(request.getParameter("elimid"));
+		
+		try {
+			//Cridem a la funció per elimnar-la
+			ReservaDAO.eliminarReserva(elimId);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		//Redirigim al servlet
+		response.sendRedirect("reservaservlet");
 	}
 
 	/**

@@ -89,7 +89,7 @@
 			<c:otherwise>
 				<c:forEach var="reserva" items="${llistaReserves}">
 					<div class="imatgeReserva">
-						<a class="fa fa-trash" href="eliminarservlet"></a>
+						<a class="fa fa-trash" href="eliminarservlet?elimid=${reserva.id}"></a>
 						<p>Sr/Sra: ${reserva.nom}</p>
 						<p>A: ${reserva.pais}</p>
 						<p>Data: ${reserva.data}</p>
