@@ -13,17 +13,17 @@ import Model.Reserva;
 public class ReservaDAO {
 	
 	/***
-	 * Métode que afegeix una reserva a la BBDD i aplica un descompte si s'ha seleccionat 
+	 * Mï¿½tode que afegeix una reserva a la BBDD i aplica un descompte si s'ha seleccionat 
 	 * 
-	 * @param reserva Objecte que conté la informació de la reserva
-	 * @param descompte Determina si l'usuari aplicarà el descompte a la reserva
-	 * @throws SQLException Llença una excepció quan es produeix un error dins de les sentencies SQL
+	 * @param reserva Objecte que contï¿½ la informaciï¿½ de la reserva
+	 * @param descompte Determina si l'usuari aplicarï¿½ el descompte a la reserva
+	 * @throws SQLException Llenï¿½a una excepciï¿½ quan es produeix un error dins de les sentencies SQL
 	 */
 	public static void afegirReserva(Reserva reserva, String descompte) throws SQLException {
 		Connection conn = null;
 		PreparedStatement sent = null;
 		
-		//Si el descompte no és NULL (és a dir, "on") canvia el preu del hotel
+		//Si el descompte no ï¿½s NULL (ï¿½s a dir, "on") canvia el preu del hotel
 		if (descompte != null) {
 			//Calculem el preu que hem de restar al preu original
 			float preuRestar = (float) (reserva.getPreu() * 0.2);
@@ -35,16 +35,16 @@ public class ReservaDAO {
 		}
 		
 		try {
-			//Estableixem connexió
+			//Estableixem connexiï¿½
 			conn = Connexio.getConnexio();
 			
-			//Senténcia SQL per a inserir a la BBDD
+			//Sentï¿½ncia SQL per a inserir a la BBDD
 			String sql = "INSERT INTO reserves(nom, persones, telefon, preu, data, pais, imatge) VALUES(?, ?, ?, ?, ?, ?, ?)";
 			
-			//Creem l'objecte del PreparedStatement passant-li la senténcia SQL
+			//Creem l'objecte del PreparedStatement passant-li la sentï¿½ncia SQL
 			sent = conn.prepareStatement(sql);
 			
-			//Igualem cada paràmetre de la senténcia a cada atribut de la reserva 
+			//Igualem cada parï¿½metre de la sentï¿½ncia a cada atribut de la reserva 
 			sent.setString(1, reserva.getNom());
 			sent.setInt(2, reserva.getPersones());
 			sent.setString(3, reserva.getTelefon());
@@ -54,7 +54,7 @@ public class ReservaDAO {
 			sent.setString(6, reserva.getPais());
 			sent.setString(7, reserva.getImatge());
 			
-			//Executem la senténcia
+			//Executem la sentï¿½ncia
 			sent.executeUpdate();
 			
 		} catch (SQLException e) {
@@ -66,9 +66,9 @@ public class ReservaDAO {
 	}
 	
 	/***
-	 * Funció per a afegir reserves en una Arraylist
+	 * Funciï¿½ per a afegir reserves en una Arraylist
 	 * @return Retorna la llista de reserves que es troben
-	 * @throws SQLException Llença una excepció quan es produeix un error dins de les sentencies SQL
+	 * @throws SQLException Llenï¿½a una excepciï¿½ quan es produeix un error dins de les sentencies SQL
 	 */
 	public static ArrayList<Reserva> getReserves() throws SQLException{
 		//Creem un objecte ArrayList de tipus Reserva on guardarem
@@ -81,16 +81,16 @@ public class ReservaDAO {
 		ResultSet res = null;
 		
 		try {
-			//Estableixem connexió
+			//Estableixem connexiï¿½
 			conn = Connexio.getConnexio();
 			
-			//Senténcia SQL per a consultar a la BBDD
+			//Sentï¿½ncia SQL per a consultar a la BBDD
 			String sql = "SELECT * FROM reserves";
 			
-			//Creem la senténcia amb la connexió anterior
+			//Creem la sentï¿½ncia amb la connexiï¿½ anterior
 			sent = conn.createStatement();
 			
-			//Executem la consulta amb la senténcia i guardem el 
+			//Executem la consulta amb la sentï¿½ncia i guardem el 
 			//resultat en el ResultSet
 			res = sent.executeQuery(sql);
 			
@@ -116,9 +116,9 @@ public class ReservaDAO {
 	}
 	
 	/***
-	 * Funció que elimina de la BBDD una reserva en funció del ID
+	 * Funciï¿½ que elimina de la BBDD una reserva en funciï¿½ del ID
 	 * @param id Identificador de la reserva que es vol eliminar
-	 * @throws SQLException Llença una excepció quan es produeix un error dins de les sentencies SQL
+	 * @throws SQLException Llenï¿½a una excepciï¿½ quan es produeix un error dins de les sentencies SQL
 	 */
 	public static void eliminarReserva(int id) throws SQLException {
 		Connection conn = null;
@@ -127,15 +127,15 @@ public class ReservaDAO {
 		try {
 			conn = Connexio.getConnexio();
 			
-			//Senténcia SQL in s'elimina de la taula reserves un registre en base al id
+			//Sentï¿½ncia SQL in s'elimina de la taula reserves un registre en base al id
 			String sql = "DELETE FROM reserves WHERE idReserva = ?";
 			
 			sent = conn.prepareStatement(sql);
 			
-			//Setejem l'id passat per paràmatre
+			//Setejem l'id passat per parï¿½matre
 			sent.setInt(1, id);
 			
-			//Executem la senténcia
+			//Executem la sentï¿½ncia
 			sent.executeUpdate();
 			
 			

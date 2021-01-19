@@ -92,10 +92,30 @@
 	//Declarem la variable global del tipus d'hora
 	var tipusHora;
 	
+	function dataPredet(){
+		let data = new Date();
+
+		let any = data.getFullYear();
+		let mes = data.getMonth() + 1;
+		let dia = data.getDate();
+
+		if (mes < 10){
+			mes = "0" + mes;
+		}
+		if (dia < 10){
+			dia = "0" + dia;
+		}
+
+		return any + "-" + mes + "-" + dia;
+	}
+	
 	/**
 	* Funció que s'executarà quan s'iniciï el codi
 	*/
 	function init(){
+		
+		document.getElementsByName("data")[0].setAttribute("value", dataPredet());
+
 		//Per defecte, el tipus d'hora serà en el format de 24 horess
 		tipusHora = "24h";
 		
@@ -113,6 +133,6 @@
 		//Creem un interval que cada segon s'actualitzi l'hora
 		setInterval(actualitzarHora, 1000);
 		
-		initDades();
+		initDades();		
 	}
 	

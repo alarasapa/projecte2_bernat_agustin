@@ -40,7 +40,8 @@ public class ReservaServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		request.getRequestDispatcher("home.jsp").forward(request, response);
+		
+		request.getRequestDispatcher("/home.jsp").forward(request, response);
 	}
 
 	/**
@@ -59,7 +60,7 @@ public class ReservaServlet extends HttpServlet {
 		}
 		
 		//Redirigim al índex
-		response.sendRedirect("home.jsp");
+		response.sendRedirect("reservaservlet");
 	}
 
 }
