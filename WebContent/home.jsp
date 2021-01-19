@@ -88,11 +88,12 @@
 					<label>No hi han reserves en la base de dades</label>
 				</c:when>
 				<c:otherwise>
+				<div class="row">
 					<c:forEach var="reserva" items="${llistaReserves}">
-						<div class="row">
+						
 				        	<div class="col-md-4">
 				            	<div class="card mb-4 box-shadow shadow-sm">
-				                	<img class="card-img-top" height="300px" width="300px" src="imatges/africa/angola.jpg" alt="Card image cap">
+				                	<img class="card-img-top" height="300px" width="300px" src="${reserva.imatge}" alt="Card image cap">
 				                	<div class="card-body">
 				                  		<p class="card-text">
 							                  Sr/Sra: ${reserva.nom}<br>
@@ -108,8 +109,9 @@
 				                	</div>
 				              	</div>
 				            </div>
-				         </div>
+				         
 					</c:forEach>
+					</div>
 				</c:otherwise>
 			</c:choose>  
 		</div>
