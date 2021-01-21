@@ -85,7 +85,7 @@ public class ReservaDAO {
 			conn = Connexio.getConnexio();
 			
 			//Sent�ncia SQL per a consultar a la BBDD
-			String sql = "SELECT * FROM reserves";
+			String sql = "SELECT * FROM reserves ORDER BY nom";
 			
 			//Creem la sent�ncia amb la connexi� anterior
 			sent = conn.createStatement();

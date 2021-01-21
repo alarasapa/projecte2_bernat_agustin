@@ -54,9 +54,9 @@
 						    
 						    <label>Telèf. </label><input type="tel"  class="form-control form-control-sm"name="telefon" placeholder="XXX.YYY.ZZZ" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}" required>
 							
-							<label>Persones </label><input type="text" class="form-control form-control-sm" name="persones" pattern ="[0-9]+" placeholder="Introdueix el número de persones (1,2,3,...)" required>
+							<label>Persones </label><input type="text" class="form-control form-control-sm mb-2" name="persones" pattern ="[0-9]+" placeholder="Introdueix el número de persones (1,2,3,...)" required>
 							
-							<div class="form-check form-switch">
+							<div class="form-check form-switch mb-2">
 								<input name="checkbox" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
 								<label class="form-check-label" for="flexSwitchCheckDefault">Descompte 20%</label>
 							</div>
@@ -79,6 +79,7 @@
 			</div>
 			
 	</div>
+	<br><br><br>
 	<div class="imatge">
 		<div class="container">
 			<c:choose>
@@ -104,7 +105,7 @@
 							                  Tel: ${reserva.telefon}<br>
 				                  		</p>
 				                  		<div class="d-flex justify-content-end align-items-center">
-				                  			<a class="fa fa-trash" href="eliminarservlet?elimid=${reserva.id}"></a>
+				                  			<a class="fa fa-trash" style="font-size:30px" href="eliminarservlet?elimid=${reserva.id}"></a>
 				                  		</div>
 				                	</div>
 				              	</div>

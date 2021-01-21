@@ -7,10 +7,17 @@
 .contenidoImagen{
 	margin-right:100px;
 }
+
 #imatge{
 	border-color:blue;
 	border-style: inset;
 }
+#imatge:hover{
+	-ms-transform: scale(1.2); /* IE 9 */
+  -webkit-transform: scale(1.2); /* Safari 3-8 */
+  transform: scale(1.2); 
+}
+
 label{
 	color:black;
 	font-weight: bold;
