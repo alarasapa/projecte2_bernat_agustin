@@ -2,7 +2,7 @@
 
 Aquest projecte consisteix a crear una web de viatges utilitzant la metodologia MVC de JAVA i el llenguatge Javascript per a la part de frontEND. En el nostre cas també hem fet servir Bootstrap per a una millor presentació.
 
-El projecte consta d'un petit manual d'usuari que ensenya les funcionalitats de la web i on també expliquem els diagrames de casos, classes i d'activitat. Per últim fem una petita conclusió del projecte i comentem els possibles errors.
+El projecte consta d'un petit manual d'usuari que ensenya les funcionalitats de la web.
 
 ## Manual d'usuari
 
